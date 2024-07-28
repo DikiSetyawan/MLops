@@ -25,7 +25,7 @@ def fetch_and_append_weather():
     new_data = weather_data.get_weather_data_for_cities(cities)
     
     # Define the CSV file path
-    file_path = r'D:\project\porto\data\data.csv'
+    file_path = r'D:\project\porto\data\data1.csv'
     
     # Check if the file exists
     if os.path.exists(file_path):
@@ -40,16 +40,14 @@ def fetch_and_append_weather():
 
     iterations += 1
 
+    return True
+
 def start_scheduler():
-    # Schedule the task to run every minute
-    schedule.every(1).minutes.do(fetch_and_append_weather)
-
-    # Keep the script running
     while iterations < max_iterations:
-        schedule.run_pending()
-        time.sleep(1)
-
-    print("Finished all scheduled tasks.")
+        if not fetch_and_append_weather():
+            break
+        print ('iteration: ' + str(iterations))
+        time.sleep(600)
 
 if __name__ == "__main__":
     start_scheduler()
