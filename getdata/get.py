@@ -43,10 +43,4 @@ class WeatherData:
     
 
 # Example usage
-api_key = '14a5f786bb3e00f1029bb5860825ef89'
-cities = ['Jakarta', 'Surabaya', 'Palembang', 'Bandung']
 
-weather_data = WeatherData(api_key)
-all_weather_data = weather_data.get_weather_data_for_cities(cities)
-
-print(all_weather_data)
