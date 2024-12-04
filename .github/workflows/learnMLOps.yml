@@ -1,9 +1,12 @@
-name: Azure python
+name: Mlops learning
 on : [push]
 jobs : 
-  - name : install dependencies
-    run : |
-      make install 
-  - name : run
-    run : |
-      make run 
+  runs-on : ubuntu-latest
+  steps : 
+    - uses : actions/checkout@v2
+    - name : install dependencies
+      run : |
+        make install 
+    - name : run
+      run : |
+        make run 
