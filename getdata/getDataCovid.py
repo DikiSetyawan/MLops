@@ -35,3 +35,5 @@ if response.status_code == 200:
 else:
     print(f"Error: API request failed with status code: {response.status_code}")
 
+df = pd.DataFrame(covidata)
+df.to_csv('/home/sat/LearnMlOps/data/covidData.csv', index=False)
