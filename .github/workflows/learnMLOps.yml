@@ -1,0 +1,9 @@
+name: Azure python
+on : [push]
+jobs : 
+  - name : install dependencies
+    run : |
+      make install 
+  - name : run
+    run : |
+      make run 
