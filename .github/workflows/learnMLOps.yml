@@ -1,12 +1,21 @@
-name: Mlops learning
-on : [push]
-jobs : 
-  runs-on : ubuntu-latest
-  steps : 
-    - uses : actions/checkout@v2
-    - name : install dependencies
-      run : |
-        make install 
-    - name : run
-      run : |
-        make run 
+name: MLOps Learning
+
+on:
+  push:
+    branches: [main]  # Adjust the branch as needed
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # Adjust the Python version as needed
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          make install
+      - name: Run the script
+        run: make run
